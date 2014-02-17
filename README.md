@@ -13,14 +13,14 @@ by Prof. H. Zhou*
 
 You are to create a set of classes to implement a banking mode in Java, and are expected to employ the techniques of inheritance and polymorphism.
 
-A bank has account owners, each of them may have one or more bank accounts, such as savings accounts, checking accounts, and business accounts. Each account has the following information stored as private data: such as name,  account_number, and balance.  At the end of each month, the bank issues a statement for each bank account containing the following information: name, SSN, account_number, phone_number, open balance, and close balance. The close balance is the open balance plus the interest calculated based on the type of the account. To simplify your task, you can assume that there was no transaction in the past month. 
+A bank has account owners, each of them may have one or more bank accounts, such as savings accounts, checking accounts, and business accounts. Each account has the following information stored as private data: such as `name`,  `account_number`, and `balance`.  At the end of each month, the bank issues a statement for each bank account containing the following information: `name`, `SSN`, `account_number`, `phone_number`, `open balance`, and `close balance`. The close balance is the open balance plus the interest calculated based on the type of the account. To simplify your task, you can assume that there was no transaction in the past month. 
 
 With a polymorphic method, the interest of each account is calculated differently:  
 1. No interest for business accounts
 2. 2.5% interest for each checking account
 3. 4% for each saving account if the balance  < $5000, 5% otherwise
 
-You may need to create the following classes: accounts, business_accounts, checking_accounts, savings_accounts, and the driver class.
+You may need to create the following classes: `accounts`, `business_accounts`, `checking_accounts`, `savings_accounts`, and the `driver` class.
 
 Read the following data from a file and use it  to test your program:
 
