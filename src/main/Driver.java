@@ -3,49 +3,40 @@ package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Driver {
+	// global variables
+	private static Scanner data; // global for loaded data that can be accessed anywhere
 
-	 public static void main(String[] args){
-		 readData();
-		 
-	 }
+	public static void main(String[] args){
+		// main method sets the program into action, leaving the various tasks to methods
+		// and subclasses
+		processAccounts();
+	}
 
-	private static void readData() {
-		// TODO Auto-generated method stub
-		String inputPath = "resources/bank-data.dat"; //file input location
+	private static void processAccounts() {
+		// main method that will write statements
+		readData("src/main/resources/bank-data.dat"); // opens up the data using a method
+		
+	}
+
+	private static void readData(String datFileName) {
+		// method to read in the file. throws error if fail
 		try {
-			// count the number of lines in a file
-			Scanner lineCount = new Scanner(new File(inputPath));
-			int lineCounter = 0; // var that will have the number of lines
-			while(lineCount.hasNextLine())
-			{
-				lineCounter++;
-				lineCount.hasNextLine();
-			}
-			
-			// fill up a 2D array for processing
-			Scanner populateArray = new Scanner(new File(inputPath));
-			int rowTrack = 0; // variable to keep track of the current row
-			String bankData[][] = null; // 2d array to hold data
-			while(rowTrack<lineCounter)
-			{
-				for(int r = 0; r<6; r++)
-				{
-					for(int c = 0; c<lineCounter; c++)
-					{
-						bankData[r][c]=populateArray.findInLine(Pattern.compile(","));
-					}
-				}
-			}
-			
-			
+			setData(new Scanner(new File(datFileName)));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.print("File not found.");
 		}
 		
+	}
+
+	public static Scanner getData() {
+		return data;
+	}
+
+	public static void setData(Scanner data) {
+		Driver.data = data;
 	}
 
 }
