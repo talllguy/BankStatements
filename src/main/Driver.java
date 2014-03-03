@@ -1,8 +1,8 @@
 /*****
  *  @author Elliott Plack
- *  COSC 600
- *  Problem: write a java program to make bank statements using polymorphism
- *  24 FEB 2014
+ *  @academic COSC 600
+ *  @problem Problem: write a java program to make bank statements using polymorphism
+ *  @date 24 FEB 2014
  * 
  */
 
@@ -16,6 +16,9 @@ public class Driver {
 	// global variables
 	public static Scanner data; // global for loaded data that can be accessed anywhere
 	
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args){
 		
 		String[][] pAccounts = new String[6][6]; // set up a 2D array to hold the data
@@ -42,6 +45,9 @@ public class Driver {
 	}
 	
 	// Set up the top portion
+	/**
+	 * @param col1Heading Heading column "Name"
+	 */
 	private static void printHeaders() {
 		String col1Heading = "Name"; // set up defaults
 		String col2Heading = "Account #";
@@ -50,10 +56,14 @@ public class Driver {
 		String col5Heading = "Balance";
 		String divider = "----------------------------------------------------------------------";
 
-		System.out.printf("%s %15s %15s %15s %15s %n",col1Heading,col2Heading,col3Heading,col4Heading,col5Heading); // print the top row
+		System.out.printf("%-10s %-12s %-16s %-17s %s %n",col1Heading,col2Heading,col3Heading,col4Heading,col5Heading); // print the top row
 		System.out.printf("%s %n",divider); // divider
 	}
 	
+	/**
+	 * @return	tempArray - a temporary 2D array
+	 * 
+	 */
 	public static String[][] processAccounts() {
 		String[][] tempArray = new String[6][6];
 		

@@ -9,16 +9,16 @@ package main;
  */
 public class Account {
 	// fields for Account class
-	public  String name;
-	public  String accountNumber;
-	public  String phoneNumber;
-	public  String ssn;
-	public  String balance;
-	public  String type;
+	public String name;
+	public String accountNumber;
+	public String phoneNumber;
+	public String ssn;
+	public String balance;
+	public String type;
 	
 	// constructor
 	public Account(String startName,String startAccountNumber, String startPhoneNumber, String startSSN, String startBalance, String startType) {
-        name = startName;
+       name = startName;
         accountNumber = startAccountNumber;
         phoneNumber = startPhoneNumber;
         ssn = startSSN;
@@ -28,27 +28,27 @@ public class Account {
 	
 	// methods
 	
-	public  void setName(String newName) {
+	public void setName(String newName) {
 		name = newName;
 	}
 	
-	public  void setAccountNumber(String newAccountNumber) {
+	public void setAccountNumber(String newAccountNumber) {
 		accountNumber = newAccountNumber;
 	}
 	
-	public  void setPhoneNumber(String newPhoneNumber) {
+	public void setPhoneNumber(String newPhoneNumber) {
 		phoneNumber = newPhoneNumber;
 	}
 	
-	public  void setSSN(String newSSN) {
+	public void setSSN(String newSSN) {
 		ssn = newSSN;
 	}
 	
-	public  void setBalance(String newBalance) {
+	public void setBalance(String newBalance) {
 		balance = newBalance;
 	}
 	
-	public  void setType(String newType) {
+	public void setType(String newType) {
 		type = newType;
 	}
 	

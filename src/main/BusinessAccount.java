@@ -14,10 +14,11 @@ public class BusinessAccount extends Account {
 	}
 	
 	public void  printAccountInfo(){
-		super.printAccountInfo();
-		double balanceConverted;
-		balanceConverted = Double.parseDouble(balance);
-	    System.out.printf("%s %15s %15s %15s %15.2f %n",name,accountNumber,phoneNumber,ssn,balanceConverted);
+		super.printAccountInfo(); // inherited from super
+		double balanceConverted; // set up a conversion variable since string is passed
+		balanceConverted = Double.parseDouble(balance); // convert to double
+		balance = "$" + String.format("%.2f", (double)balanceConverted); // convert to formatted string
+	    System.out.printf("%-10s %-12s %-16s %-17s %s %n",name,accountNumber,phoneNumber,ssn,balance);
 	}
 
 }

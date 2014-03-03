@@ -17,8 +17,12 @@ public class SavingsAccount extends Account {
 		super.printAccountInfo();
 		double balanceConverted;
 		balanceConverted = Double.parseDouble(balance);
-		balanceConverted = (1.025 * balanceConverted);
-	    System.out.printf("%s %15s %15s %15s %15.2f %n",name,accountNumber,phoneNumber,ssn,balanceConverted);
+
+		if (balanceConverted < 5000)
+			balanceConverted = (1.04 * balanceConverted);
+		else balanceConverted = (1.05 * balanceConverted);
+		balance = "$" + String.format("%.2f", (double)balanceConverted); // convert to formatted string
+	    System.out.printf("%-10s %-12s %-16s %-17s %s %n",name,accountNumber,phoneNumber,ssn,balance);
 	}
 
 }

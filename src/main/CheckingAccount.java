@@ -18,7 +18,8 @@ public class CheckingAccount extends Account {
 		double balanceConverted;
 		balanceConverted = Double.parseDouble(balance);
 		balanceConverted = (1.025 * balanceConverted);
-	    System.out.printf("%s %15s %15s %15s %15.2f %n",name,accountNumber,phoneNumber,ssn,balanceConverted);
+		balance = "$" + String.format("%.2f", (double)balanceConverted); // convert to formatted string
+	    System.out.printf("%-10s %-12s %-16s %-17s %s %n",name,accountNumber,phoneNumber,ssn,balance);
 	}
 
 }
