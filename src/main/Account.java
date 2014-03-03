@@ -9,15 +9,15 @@ package main;
  */
 public class Account {
 	// fields for Account class
-	public static String name;
-	public static int accountNumber;
-	public static String phoneNumber;
-	public static String ssn;
-	public static double balance;
-	public static String type;
+	public  String name;
+	public  String accountNumber;
+	public  String phoneNumber;
+	public  String ssn;
+	public  String balance;
+	public  String type;
 	
 	// constructor
-	public Account(String startName,int startAccountNumber, String startPhoneNumber, String startSSN, double startBalance, String startType) {
+	public Account(String startName,String startAccountNumber, String startPhoneNumber, String startSSN, String startBalance, String startType) {
         name = startName;
         accountNumber = startAccountNumber;
         phoneNumber = startPhoneNumber;
@@ -28,32 +28,32 @@ public class Account {
 	
 	// methods
 	
-	public static void setName(String newName) {
+	public  void setName(String newName) {
 		name = newName;
 	}
 	
-	public static void setAccountNumber(int newAccountNumber) {
+	public  void setAccountNumber(String newAccountNumber) {
 		accountNumber = newAccountNumber;
 	}
 	
-	public static void setPhoneNumber(String newPhoneNumber) {
+	public  void setPhoneNumber(String newPhoneNumber) {
 		phoneNumber = newPhoneNumber;
 	}
 	
-	public static void setSSN(String newSSN) {
+	public  void setSSN(String newSSN) {
 		ssn = newSSN;
 	}
 	
-	public static void setBalance(double newBalance) {
+	public  void setBalance(String newBalance) {
 		balance = newBalance;
 	}
 	
-	public static void setType(String newType) {
+	public  void setType(String newType) {
 		type = newType;
 	}
 	
-	public static void printAccountInfo(){
-	    System.out.printf("%s %15d %15s %15s %15f %n",name,accountNumber,phoneNumber,ssn,balance);
+	public void printAccountInfo(){
+//	    System.out.printf("%s %15s %15s %15s %15s %n",name,accountNumber,phoneNumber,ssn,balance);
 	}
 	
 }

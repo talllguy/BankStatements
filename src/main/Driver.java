@@ -17,8 +17,27 @@ public class Driver {
 	public static Scanner data; // global for loaded data that can be accessed anywhere
 	
 	public static void main(String[] args){
-		printHeaders();
-		processAccounts();
+		
+		String[][] pAccounts = new String[6][6]; // set up a 2D array to hold the data
+		Account[] accountLines = new Account[6]; // array to send data elsewhere
+		
+		printHeaders(); // print the top stuff
+		pAccounts = processAccounts(); // set that array = to this method which fills it
+		
+		for (int i = 0; i < 6; i++) {
+			switch (pAccounts[i][5].charAt(0)) {
+				case 'C':	accountLines[i] = new CheckingAccount(pAccounts[i][0], pAccounts[i][1], pAccounts[i][2], pAccounts[i][3], pAccounts[i][4], pAccounts[i][5]);
+							break;
+				case 'S':	accountLines[i] = new SavingsAccount(pAccounts[i][0], pAccounts[i][1], pAccounts[i][2], pAccounts[i][3], pAccounts[i][4], pAccounts[i][5]);
+							break;
+				case 'B':	accountLines[i] = new BusinessAccount(pAccounts[i][0], pAccounts[i][1], pAccounts[i][2], pAccounts[i][3], pAccounts[i][4], pAccounts[i][5]);
+							break;
+			}
+		}
+			
+		for (int j = 0; j < 6; j++) {
+			accountLines[j].printAccountInfo();
+		}
 		
 	}
 	
@@ -35,18 +54,19 @@ public class Driver {
 		System.out.printf("%s %n",divider); // divider
 	}
 	
-	public static void processAccounts() {
-		int i = 0;
-		Driver.readData("src/main/resources/bank-data.dat"); // opens up the data using a method
-		while(i<6) {
-			Account.setName(Driver.data.next());
-			Account.setAccountNumber(Driver.data.nextInt());
-			Account.setPhoneNumber(Driver.data.next());
-			Account.setSSN(Driver.data.next());
-			Account.setBalance(Driver.data.nextDouble());
-			Account.setType(Driver.data.next());
-			Account.printAccountInfo();
+	public static String[][] processAccounts() {
+		String[][] tempArray = new String[6][6];
+		
+		readData("src/main/resources/bank-data.dat"); // opens up the data using a method
+		for(int i = 0; i < 6; i++) {
+			tempArray[i][0] = (Driver.data.next());
+			tempArray[i][1] = (Driver.data.next());
+			tempArray[i][2] = (Driver.data.next());
+			tempArray[i][3] = (Driver.data.next());
+			tempArray[i][4] = (Driver.data.next());
+			tempArray[i][5] = (Driver.data.next());
 		}
+		return tempArray;
 	}
 	
 	// file reading methods below here --------------------------
