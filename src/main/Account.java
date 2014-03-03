@@ -8,39 +8,52 @@ package main;
  *
  */
 public class Account {
+	// fields for Account class
+	public static String name;
+	public static int accountNumber;
+	public static String phoneNumber;
+	public static String ssn;
+	public static double balance;
+	public static String type;
 	
-	public String name;
-	public int accountNumber;
-	public String phoneNumber;
-	public String ssn;
-	public double balance;
+	// constructor
+	public Account(String startName,int startAccountNumber, String startPhoneNumber, String startSSN, double startBalance, String startType) {
+        name = startName;
+        accountNumber = startAccountNumber;
+        phoneNumber = startPhoneNumber;
+        ssn = startSSN;
+        balance = startBalance;
+        type = startType;
+    }
 	
-	public static Account[] accounts = new Account[6];
+	// methods
 	
-	public static void processAccounts() {
-		int i = 0;
-		Driver.readData("src/main/resources/bank-data.dat"); // opens up the data using a method
-		while(i<6) {
-			String name = Driver.data.next();
-			int accountNumber = Driver.data.nextInt();
-			String phoneNumber = Driver.data.next();
-			String ssn = Driver.data.next();
-			double balance = Driver.data.nextDouble();
-			String type = Driver.data.next();
-			
-			if ("C".equals(type)) {
-	            accounts[i]= new CheckingAccount(name,accountNumber,phoneNumber,ssn,balance);
-	            ((CheckingAccount)accounts[i]).doInterest();
-			}
-			if ("S".equals(type)) {
-	            accounts[i]= new SavingsAccount(name,accountNumber,phoneNumber,ssn,balance);
-	            ((SavingsAccount)accounts[i]).doInterest();
-	        }
-	         if ("B".equals(type)) {
-	        	 accounts[i]= new BusinessAccount(name,accountNumber,phoneNumber,ssn,balance);
-	            ((BusinessAccount)accounts[i]).doInterest();
-	         }
-			i++;
-		}
+	public static void setName(String newName) {
+		name = newName;
 	}
+	
+	public static void setAccountNumber(int newAccountNumber) {
+		accountNumber = newAccountNumber;
+	}
+	
+	public static void setPhoneNumber(String newPhoneNumber) {
+		phoneNumber = newPhoneNumber;
+	}
+	
+	public static void setSSN(String newSSN) {
+		ssn = newSSN;
+	}
+	
+	public static void setBalance(double newBalance) {
+		balance = newBalance;
+	}
+	
+	public static void setType(String newType) {
+		type = newType;
+	}
+	
+	public static void printAccountInfo(){
+	    System.out.printf("%s %15d %15s %15s %15f %n",name,accountNumber,phoneNumber,ssn,balance);
+	}
+	
 }
